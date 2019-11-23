@@ -64,17 +64,17 @@ class Model(object):
     @lazy_property
     def probability(self):
         def lstm_cell():
-            if 'reuse' in inspect.getargspec(tf.contrib.rnn.GRUCell.__init__).args:
-                return tf.contrib.rnn.GRUCell(self.emb_dim, reuse=tf.get_variable_scope().reuse)
+            if 'reuse' in inspect.getargspec(tf.nn.rnn_cell.GRUCell.__init__).args:
+                return tf.nn.rnn_cell.GRUCell(self.emb_dim, reuse=tf.get_variable_scope().reuse)
             else:
-                return tf.contrib.rnn.GRUCell(self.emb_dim)
+                return tf.nn.rnn_cell.GRUCell(self.emb_dim)
 
         attn_cell = lstm_cell
         if self.dropout < 1:
             def attn_cell():
-                return tf.contrib.rnn.DropoutWrapper(
+                return tf.nn.rnn_cell.DropoutWrapper(
                     lstm_cell(), output_keep_prob=self._keep_prob)
-        single_cell = tf.contrib.rnn.MultiRNNCell([attn_cell() for _ in range(self.num_layers)], state_is_tuple=True)
+        single_cell = tf.nn.rnn_cell.MultiRNNCell([attn_cell() for _ in range(self.num_layers)], state_is_tuple=True)
 
         output, state = tf.nn.dynamic_rnn(single_cell, self._data, dtype=tf.float32,
                                           sequence_length=self._length)
