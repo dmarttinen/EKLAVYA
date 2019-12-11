@@ -1,0 +1,1584 @@
+
+lengthmov:     file format elf32-i386
+
+
+Disassembly of section .plt:
+
+08049000 <.plt>:
+ 8049000:	ff 35 04 d0 04 08                            	push   DWORD PTR ds:0x804d004
+ 8049006:	ff 25 08 d0 04 08                            	jmp    DWORD PTR ds:0x804d008
+ 804900c:	00 00                                        	add    BYTE PTR [eax],al
+	...
+
+08049010 <printf@plt>:
+ 8049010:	ff 25 0c d0 04 08                            	jmp    DWORD PTR ds:0x804d00c
+ 8049016:	68 00 00 00 00                               	push   0x0
+ 804901b:	e9 e0 ff ff ff                               	jmp    8049000 <.plt>
+
+08049020 <exit@plt>:
+ 8049020:	ff 25 10 d0 04 08                            	jmp    DWORD PTR ds:0x804d010
+ 8049026:	68 08 00 00 00                               	push   0x8
+ 804902b:	e9 d0 ff ff ff                               	jmp    8049000 <.plt>
+
+08049030 <__isoc99_scanf@plt>:
+ 8049030:	ff 25 14 d0 04 08                            	jmp    DWORD PTR ds:0x804d014
+ 8049036:	68 10 00 00 00                               	push   0x10
+ 804903b:	e9 c0 ff ff ff                               	jmp    8049000 <.plt>
+
+08049040 <sigaction@plt>:
+ 8049040:	ff 25 18 d0 04 08                            	jmp    DWORD PTR ds:0x804d018
+ 8049046:	68 18 00 00 00                               	push   0x18
+ 804904b:	e9 b0 ff ff ff                               	jmp    8049000 <.plt>
+
+08049050 <dispatch>:
+ 8049050:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 8049056:	ff 25 c4 61 5f 08                            	jmp    DWORD PTR ds:0x85f61c4
+
+Disassembly of section .text:
+
+0804905c <_start>:
+ 804905c:	89 25 40 61 3f 08                            	mov    DWORD PTR ds:0x83f6140,esp
+ 8049062:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 8049068:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 804906f:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 8049076:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 804907d:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 8049084:	c7 04 24 0b 00 00 00                         	mov    DWORD PTR [esp],0xb
+ 804908b:	c7 44 24 04 d4 61 5f 08                      	mov    DWORD PTR [esp+0x4],0x85f61d4
+ 8049093:	c7 44 24 08 00 00 00 00                      	mov    DWORD PTR [esp+0x8],0x0
+ 804909b:	e8 a0 ff ff ff                               	call   8049040 <sigaction@plt>
+ 80490a0:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 80490a6:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 80490ad:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 80490b4:	8b a4 24 98 ff df ff                         	mov    esp,DWORD PTR [esp-0x200068]
+ 80490bb:	c7 04 24 04 00 00 00                         	mov    DWORD PTR [esp],0x4
+ 80490c2:	c7 44 24 04 60 62 5f 08                      	mov    DWORD PTR [esp+0x4],0x85f6260
+ 80490ca:	c7 44 24 08 00 00 00 00                      	mov    DWORD PTR [esp+0x8],0x0
+ 80490d2:	e8 69 ff ff ff                               	call   8049040 <sigaction@plt>
+
+080490d7 <_start0>:
+ 80490d7:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 80490dd:	a1 5c 61 3f 08                               	mov    eax,ds:0x83f615c
+ 80490e2:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 80490e9:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 80490ef:	c7 05 5c 61 3f 08 00 00 00 00                	mov    DWORD PTR ds:0x83f615c,0x0
+ 80490f9:	a1 40 61 3f 08                               	mov    eax,ds:0x83f6140
+ 80490fe:	ba 04 00 00 00                               	mov    edx,0x4
+ 8049103:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049108:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804910e:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049113:	b9 00 00 00 00                               	mov    ecx,0x0
+ 8049118:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 8049122:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 8049128:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 804912f:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049136:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049139:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049140:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049147:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804914a:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 8049151:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049157:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 804915d:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 8049164:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804916b:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804916e:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049175:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804917c:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804917f:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 8049186:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804918c:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 8049191:	89 c0                                        	mov    eax,eax
+ 8049193:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049198:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804919d:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80491a3:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80491a8:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80491af:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 80491b5:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 80491bb:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80491bd:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 80491c2:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80491c8:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80491cd:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80491d4:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 80491da:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80491dc:	a1 40 61 3f 08                               	mov    eax,ds:0x83f6140
+ 80491e1:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 80491e3:	89 c0                                        	mov    eax,eax
+ 80491e5:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 80491ea:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 80491ef:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80491f5:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80491fa:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049201:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049207:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804920d:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804920f:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049214:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804921a:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804921f:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049226:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804922c:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804922e:	b8 3e 93 04 88                               	mov    eax,0x8804933e
+ 8049233:	89 c0                                        	mov    eax,eax
+ 8049235:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 804923a:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804923f:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049245:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804924a:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049251:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049257:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804925d:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804925f:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049264:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804926a:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804926f:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049276:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804927c:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804927e:	b8 84 95 04 88                               	mov    eax,0x88049584
+ 8049283:	a3 00 61 1f 08                               	mov    ds:0x81f6100,eax
+ 8049288:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 804928d:	8b 04 85 60 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6160]
+ 8049294:	8b 15 00 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6100
+ 804929a:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804929c:	8b 0d 58 61 3f 08                            	mov    ecx,DWORD PTR ds:0x83f6158
+ 80492a2:	c7 05 74 61 3f 08 90 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f6190
+ 80492ac:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80492b3:	8b 15 50 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d050
+ 80492b9:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80492bb:	8b 15 54 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d054
+ 80492c1:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 80492c4:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 80492ca:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 80492cd:	8b 15 5c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d05c
+ 80492d3:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 80492d6:	c7 05 74 61 3f 08 a0 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a0
+ 80492e0:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80492e7:	8b 15 60 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d060
+ 80492ed:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80492ef:	8b 15 64 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d064
+ 80492f5:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 80492f8:	c7 05 74 61 3f 08 a8 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a8
+ 8049302:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049309:	8b 15 70 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d070
+ 804930f:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049311:	8b 15 74 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d074
+ 8049317:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804931a:	8b 15 78 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d078
+ 8049320:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 8049323:	8b 15 7c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d07c
+ 8049329:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 804932c:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 8049331:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 8049338:	c7 00 00 00 00 00                            	mov    DWORD PTR [eax],0x0
+ 804933e:	a1 68 61 3f 08                               	mov    eax,ds:0x83f6168
+ 8049343:	ba 3e 93 04 88                               	mov    edx,0x8804933e
+ 8049348:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804934d:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 8049353:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049358:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804935d:	ba 00 00 00 00                               	mov    edx,0x0
+ 8049362:	a0 f0 5f 1f 08                               	mov    al,ds:0x81f5ff0
+ 8049367:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804936e:	8a 15 f4 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff4
+ 8049374:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 8049377:	89 15 e0 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe0,edx
+ 804937d:	a0 f1 5f 1f 08                               	mov    al,ds:0x81f5ff1
+ 8049382:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 8049389:	8a 15 f5 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff5
+ 804938f:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 8049392:	89 15 e4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe4,edx
+ 8049398:	a0 f2 5f 1f 08                               	mov    al,ds:0x81f5ff2
+ 804939d:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 80493a4:	8a 15 f6 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff6
+ 80493aa:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 80493ad:	89 15 e8 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe8,edx
+ 80493b3:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 80493b8:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 80493bf:	8a 15 f7 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff7
+ 80493c5:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 80493c8:	89 15 ec 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fec,edx
+ 80493ce:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 80493d3:	8b 15 e4 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe4
+ 80493d9:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 80493e0:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 80493e3:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 80493e8:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 80493ed:	8b 15 e8 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe8
+ 80493f3:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 80493fa:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 80493fd:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 8049402:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 8049407:	8b 15 ec 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fec
+ 804940d:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 8049414:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 8049417:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804941c:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 8049421:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 8049426:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 804942c:	c7 05 74 61 3f 08 50 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d050
+ 8049436:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804943d:	8b 15 90 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6190
+ 8049443:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049445:	c7 05 74 61 3f 08 54 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d054
+ 804944f:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049456:	8b 15 94 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6194
+ 804945c:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804945e:	c7 05 74 61 3f 08 58 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d058
+ 8049468:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804946f:	8b 15 98 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6198
+ 8049475:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049477:	c7 05 74 61 3f 08 5c d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d05c
+ 8049481:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049488:	8b 15 9c 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f619c
+ 804948e:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049490:	c7 05 74 61 3f 08 60 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d060
+ 804949a:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80494a1:	8b 15 a0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a0
+ 80494a7:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80494a9:	c7 05 74 61 3f 08 64 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d064
+ 80494b3:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80494ba:	8b 15 a4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a4
+ 80494c0:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80494c2:	c7 05 74 61 3f 08 70 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d070
+ 80494cc:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80494d3:	8b 15 a8 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a8
+ 80494d9:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80494db:	8b 15 ac 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61ac
+ 80494e1:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 80494e4:	c7 05 74 61 3f 08 78 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d078
+ 80494ee:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80494f5:	8b 15 b0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b0
+ 80494fb:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80494fd:	8b 15 b4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b4
+ 8049503:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 8049506:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804950b:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 8049512:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 8049518:	b8 00 00 00 00                               	mov    eax,0x0
+ 804951d:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049522:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049527:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804952d:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049532:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049539:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804953f:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049545:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049547:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804954c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049552:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049557:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804955e:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049564:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049566:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 804956c:	c7 05 c4 61 5f 08 20 90 04 08                	mov    DWORD PTR ds:0x85f61c4,0x8049020
+ 8049576:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 804957b:	8b 04 85 c8 61 5f 08                         	mov    eax,DWORD PTR [eax*4+0x85f61c8]
+ 8049582:	8b 00                                        	mov    eax,DWORD PTR [eax]
+
+08049584 <main>:
+ 8049584:	a1 68 61 3f 08                               	mov    eax,ds:0x83f6168
+ 8049589:	ba 84 95 04 88                               	mov    edx,0x88049584
+ 804958e:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049593:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 8049599:	b8 00 00 00 00                               	mov    eax,0x0
+ 804959e:	b9 00 00 00 00                               	mov    ecx,0x0
+ 80495a3:	ba 00 00 00 00                               	mov    edx,0x0
+ 80495a8:	a0 f0 5f 1f 08                               	mov    al,ds:0x81f5ff0
+ 80495ad:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 80495b4:	8a 15 f4 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff4
+ 80495ba:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 80495bd:	89 15 e0 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe0,edx
+ 80495c3:	a0 f1 5f 1f 08                               	mov    al,ds:0x81f5ff1
+ 80495c8:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 80495cf:	8a 15 f5 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff5
+ 80495d5:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 80495d8:	89 15 e4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe4,edx
+ 80495de:	a0 f2 5f 1f 08                               	mov    al,ds:0x81f5ff2
+ 80495e3:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 80495ea:	8a 15 f6 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff6
+ 80495f0:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 80495f3:	89 15 e8 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe8,edx
+ 80495f9:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 80495fe:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 8049605:	8a 15 f7 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff7
+ 804960b:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804960e:	89 15 ec 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fec,edx
+ 8049614:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 8049619:	8b 15 e4 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe4
+ 804961f:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 8049626:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 8049629:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804962e:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 8049633:	8b 15 e8 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe8
+ 8049639:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 8049640:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 8049643:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 8049648:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804964d:	8b 15 ec 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fec
+ 8049653:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804965a:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804965d:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 8049662:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 8049667:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804966c:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 8049672:	c7 05 74 61 3f 08 50 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d050
+ 804967c:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049683:	8b 15 90 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6190
+ 8049689:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804968b:	c7 05 74 61 3f 08 54 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d054
+ 8049695:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804969c:	8b 15 94 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6194
+ 80496a2:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80496a4:	c7 05 74 61 3f 08 58 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d058
+ 80496ae:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80496b5:	8b 15 98 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6198
+ 80496bb:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80496bd:	c7 05 74 61 3f 08 5c d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d05c
+ 80496c7:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80496ce:	8b 15 9c 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f619c
+ 80496d4:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80496d6:	c7 05 74 61 3f 08 60 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d060
+ 80496e0:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 80496e7:	8b 15 a0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a0
+ 80496ed:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80496ef:	c7 05 74 61 3f 08 64 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d064
+ 80496f9:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049700:	8b 15 a4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a4
+ 8049706:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049708:	c7 05 74 61 3f 08 70 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d070
+ 8049712:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049719:	8b 15 a8 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a8
+ 804971f:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049721:	8b 15 ac 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61ac
+ 8049727:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804972a:	c7 05 74 61 3f 08 78 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d078
+ 8049734:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804973b:	8b 15 b0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b0
+ 8049741:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049743:	8b 15 b4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b4
+ 8049749:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804974c:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 8049751:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 8049758:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 804975e:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 8049763:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049768:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804976d:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049773:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049778:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804977f:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049785:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804978b:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804978d:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049792:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049798:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804979d:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80497a4:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 80497aa:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80497ac:	a1 54 d0 04 08                               	mov    eax,ds:0x804d054
+ 80497b1:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 80497b6:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 80497bb:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80497c1:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80497c6:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80497cd:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 80497d3:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 80497d9:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80497db:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 80497e0:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80497e6:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80497eb:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80497f2:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 80497f8:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80497fa:	a1 58 d0 04 08                               	mov    eax,ds:0x804d058
+ 80497ff:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049804:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049809:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804980f:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049814:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804981b:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049821:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049827:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049829:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804982e:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049834:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049839:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049840:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049846:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049848:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804984d:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049852:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049857:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804985d:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049862:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049869:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804986f:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049875:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049877:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804987c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049882:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049887:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804988e:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049894:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049896:	a1 64 d0 04 08                               	mov    eax,ds:0x804d064
+ 804989b:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 80498a0:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 80498a5:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80498ab:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80498b0:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80498b7:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 80498bd:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 80498c3:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80498c5:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 80498ca:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 80498d0:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 80498d5:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 80498dc:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 80498e2:	89 10                                        	mov    DWORD PTR [eax],edx
+ 80498e4:	a1 78 d0 04 08                               	mov    eax,ds:0x804d078
+ 80498e9:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 80498ee:	a1 7c d0 04 08                               	mov    eax,ds:0x804d07c
+ 80498f3:	a3 14 61 1f 08                               	mov    ds:0x81f6114,eax
+ 80498f8:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 80498fd:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049903:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049908:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804990f:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049915:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804991b:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049921:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049923:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049928:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804992e:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049933:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804993a:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049940:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049942:	8b 15 14 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6114
+ 8049948:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804994b:	b8 34 61 3f 08                               	mov    eax,0x83f6134
+ 8049950:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049956:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804995b:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049962:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049968:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804996a:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804996f:	ba 14 fc ff ff                               	mov    edx,0xfffffc14
+ 8049974:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049979:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804997f:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049984:	b9 00 00 00 00                               	mov    ecx,0x0
+ 8049989:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 8049993:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 8049999:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 80499a0:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 80499a7:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 80499aa:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 80499b1:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 80499b8:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 80499bb:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 80499c2:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 80499c8:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 80499ce:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 80499d5:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 80499dc:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 80499df:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 80499e6:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 80499ed:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 80499f0:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 80499f7:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 80499fd:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 8049a02:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049a07:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049a0c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049a12:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049a17:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049a1e:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049a24:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049a26:	b8 38 d0 04 08                               	mov    eax,0x804d038
+ 8049a2b:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 8049a30:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 8049a35:	89 c0                                        	mov    eax,eax
+ 8049a37:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049a3c:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049a41:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049a47:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049a4c:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049a53:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049a59:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049a5f:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049a61:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049a66:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049a6c:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049a71:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049a78:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049a7e:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049a80:	b8 80 9b 04 88                               	mov    eax,0x88049b80
+ 8049a85:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049a8a:	c7 05 f4 5f 1f 08 00 00 00 80                	mov    DWORD PTR ds:0x81f5ff4,0x80000000
+ 8049a94:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049a99:	b9 00 00 00 00                               	mov    ecx,0x0
+ 8049a9e:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 8049aa8:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 8049aae:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 8049ab5:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049abc:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049abf:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049ac6:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049acd:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049ad0:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 8049ad7:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049add:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 8049ae3:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 8049aea:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049af1:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049af4:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049afb:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049b02:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049b05:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 8049b0c:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049b12:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 8049b17:	89 c0                                        	mov    eax,eax
+ 8049b19:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049b1e:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049b23:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049b29:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049b2e:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049b35:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049b3b:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049b41:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049b43:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049b48:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049b4e:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049b53:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049b5a:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049b60:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049b62:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 8049b68:	c7 05 c4 61 5f 08 10 90 04 08                	mov    DWORD PTR ds:0x85f61c4,0x8049010
+ 8049b72:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 8049b77:	8b 04 85 c8 61 5f 08                         	mov    eax,DWORD PTR [eax*4+0x85f61c8]
+ 8049b7e:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 8049b80:	a3 50 d0 04 08                               	mov    ds:0x804d050,eax
+ 8049b85:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049b8a:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 8049b8c:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 8049b92:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049b97:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049b9d:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049ba2:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049ba9:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049baf:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 8049bb5:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049bb7:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049bbd:	89 d0                                        	mov    eax,edx
+ 8049bbf:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049bc4:	8b 80 a0 ff df ff                            	mov    eax,DWORD PTR [eax-0x200060]
+ 8049bca:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049bcf:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049bd4:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049bda:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049bdf:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049be6:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049bec:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049bee:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 8049bf3:	ba 14 fc ff ff                               	mov    edx,0xfffffc14
+ 8049bf8:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049bfd:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 8049c03:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049c08:	b9 00 00 00 00                               	mov    ecx,0x0
+ 8049c0d:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 8049c17:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 8049c1d:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 8049c24:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049c2b:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049c2e:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049c35:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049c3c:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049c3f:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 8049c46:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049c4c:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 8049c52:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 8049c59:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049c60:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049c63:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049c6a:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049c71:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049c74:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 8049c7b:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049c81:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 8049c86:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 8049c8b:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 8049c90:	89 c0                                        	mov    eax,eax
+ 8049c92:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049c97:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049c9c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049ca2:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049ca7:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049cae:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049cb4:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049cba:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049cbc:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049cc1:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049cc7:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049ccc:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049cd3:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049cd9:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049cdb:	b8 35 d0 04 08                               	mov    eax,0x804d035
+ 8049ce0:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 8049ce5:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 8049cea:	89 c0                                        	mov    eax,eax
+ 8049cec:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049cf1:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049cf6:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049cfc:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049d01:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049d08:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049d0e:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049d14:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049d16:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049d1b:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049d21:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049d26:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049d2d:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049d33:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049d35:	b8 35 9e 04 88                               	mov    eax,0x88049e35
+ 8049d3a:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049d3f:	c7 05 f4 5f 1f 08 00 00 00 80                	mov    DWORD PTR ds:0x81f5ff4,0x80000000
+ 8049d49:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049d4e:	b9 00 00 00 00                               	mov    ecx,0x0
+ 8049d53:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 8049d5d:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 8049d63:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 8049d6a:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049d71:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049d74:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049d7b:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049d82:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049d85:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 8049d8c:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049d92:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 8049d98:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 8049d9f:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 8049da6:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049da9:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 8049db0:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 8049db7:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 8049dba:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 8049dc1:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 8049dc7:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 8049dcc:	89 c0                                        	mov    eax,eax
+ 8049dce:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049dd3:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049dd8:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049dde:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049de3:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049dea:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049df0:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 8049df6:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049df8:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049dfd:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049e03:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049e08:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049e0f:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049e15:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049e17:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 8049e1d:	c7 05 c4 61 5f 08 30 90 04 08                	mov    DWORD PTR ds:0x85f61c4,0x8049030
+ 8049e27:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 8049e2c:	8b 04 85 c8 61 5f 08                         	mov    eax,DWORD PTR [eax*4+0x85f61c8]
+ 8049e33:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 8049e35:	a3 50 d0 04 08                               	mov    ds:0x804d050,eax
+ 8049e3a:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049e3f:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 8049e41:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 8049e47:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049e4c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049e52:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049e57:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049e5e:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 8049e64:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 8049e6a:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049e6c:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049e72:	89 d0                                        	mov    eax,edx
+ 8049e74:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 8049e79:	8b 80 a0 ff df ff                            	mov    eax,DWORD PTR [eax-0x200060]
+ 8049e7f:	8b 80 a0 ff df ff                            	mov    eax,DWORD PTR [eax-0x200060]
+ 8049e85:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 8049e8a:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 8049e8f:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049e95:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049e9a:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049ea1:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 8049ea7:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049ea9:	c7 05 5c d0 04 08 00 00 00 00                	mov    DWORD PTR ds:0x804d05c,0x0
+ 8049eb3:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 8049eb8:	8b 80 98 ff df ff                            	mov    eax,DWORD PTR [eax-0x200068]
+ 8049ebe:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 8049ec4:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 8049ec9:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 8049ed0:	8b 15 5c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d05c
+ 8049ed6:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049ed8:	b8 47 a4 04 88                               	mov    eax,0x8804a447
+ 8049edd:	a3 00 61 1f 08                               	mov    ds:0x81f6100,eax
+ 8049ee2:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 8049ee7:	8b 04 85 60 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6160]
+ 8049eee:	8b 15 00 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6100
+ 8049ef4:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049ef6:	8b 0d 58 61 3f 08                            	mov    ecx,DWORD PTR ds:0x83f6158
+ 8049efc:	c7 05 74 61 3f 08 90 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f6190
+ 8049f06:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049f0d:	8b 15 50 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d050
+ 8049f13:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049f15:	8b 15 54 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d054
+ 8049f1b:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 8049f1e:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 8049f24:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 8049f27:	8b 15 5c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d05c
+ 8049f2d:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 8049f30:	c7 05 74 61 3f 08 a0 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a0
+ 8049f3a:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049f41:	8b 15 60 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d060
+ 8049f47:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049f49:	8b 15 64 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d064
+ 8049f4f:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 8049f52:	c7 05 74 61 3f 08 a8 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a8
+ 8049f5c:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 8049f63:	8b 15 70 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d070
+ 8049f69:	89 10                                        	mov    DWORD PTR [eax],edx
+ 8049f6b:	8b 15 74 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d074
+ 8049f71:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 8049f74:	8b 15 78 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d078
+ 8049f7a:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 8049f7d:	8b 15 7c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d07c
+ 8049f83:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 8049f86:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 8049f8b:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 8049f92:	c7 00 00 00 00 00                            	mov    DWORD PTR [eax],0x0
+ 8049f98:	a1 68 61 3f 08                               	mov    eax,ds:0x83f6168
+ 8049f9d:	ba 98 9f 04 88                               	mov    edx,0x88049f98
+ 8049fa2:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 8049fa7:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 8049fad:	b8 00 00 00 00                               	mov    eax,0x0
+ 8049fb2:	b9 00 00 00 00                               	mov    ecx,0x0
+ 8049fb7:	ba 00 00 00 00                               	mov    edx,0x0
+ 8049fbc:	a0 f0 5f 1f 08                               	mov    al,ds:0x81f5ff0
+ 8049fc1:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 8049fc8:	8a 15 f4 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff4
+ 8049fce:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 8049fd1:	89 15 e0 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe0,edx
+ 8049fd7:	a0 f1 5f 1f 08                               	mov    al,ds:0x81f5ff1
+ 8049fdc:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 8049fe3:	8a 15 f5 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff5
+ 8049fe9:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 8049fec:	89 15 e4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe4,edx
+ 8049ff2:	a0 f2 5f 1f 08                               	mov    al,ds:0x81f5ff2
+ 8049ff7:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 8049ffe:	8a 15 f6 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff6
+ 804a004:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a007:	89 15 e8 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe8,edx
+ 804a00d:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 804a012:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a019:	8a 15 f7 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff7
+ 804a01f:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a022:	89 15 ec 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fec,edx
+ 804a028:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a02d:	8b 15 e4 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe4
+ 804a033:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a03a:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a03d:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a042:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a047:	8b 15 e8 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe8
+ 804a04d:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a054:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a057:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a05c:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a061:	8b 15 ec 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fec
+ 804a067:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a06e:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a071:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a076:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a07b:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a080:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 804a086:	c7 05 74 61 3f 08 50 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d050
+ 804a090:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a097:	8b 15 90 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6190
+ 804a09d:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a09f:	c7 05 74 61 3f 08 54 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d054
+ 804a0a9:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a0b0:	8b 15 94 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6194
+ 804a0b6:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a0b8:	c7 05 74 61 3f 08 58 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d058
+ 804a0c2:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a0c9:	8b 15 98 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6198
+ 804a0cf:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a0d1:	c7 05 74 61 3f 08 5c d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d05c
+ 804a0db:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a0e2:	8b 15 9c 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f619c
+ 804a0e8:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a0ea:	c7 05 74 61 3f 08 60 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d060
+ 804a0f4:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a0fb:	8b 15 a0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a0
+ 804a101:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a103:	c7 05 74 61 3f 08 64 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d064
+ 804a10d:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a114:	8b 15 a4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a4
+ 804a11a:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a11c:	c7 05 74 61 3f 08 70 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d070
+ 804a126:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a12d:	8b 15 a8 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a8
+ 804a133:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a135:	8b 15 ac 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61ac
+ 804a13b:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a13e:	c7 05 74 61 3f 08 78 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d078
+ 804a148:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a14f:	8b 15 b0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b0
+ 804a155:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a157:	8b 15 b4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b4
+ 804a15d:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a160:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a165:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 804a16c:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 804a172:	a1 68 61 3f 08                               	mov    eax,ds:0x83f6168
+ 804a177:	ba 72 a1 04 88                               	mov    edx,0x8804a172
+ 804a17c:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804a181:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804a187:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a18c:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804a191:	ba 00 00 00 00                               	mov    edx,0x0
+ 804a196:	a0 f0 5f 1f 08                               	mov    al,ds:0x81f5ff0
+ 804a19b:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a1a2:	8a 15 f4 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff4
+ 804a1a8:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a1ab:	89 15 e0 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe0,edx
+ 804a1b1:	a0 f1 5f 1f 08                               	mov    al,ds:0x81f5ff1
+ 804a1b6:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a1bd:	8a 15 f5 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff5
+ 804a1c3:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a1c6:	89 15 e4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe4,edx
+ 804a1cc:	a0 f2 5f 1f 08                               	mov    al,ds:0x81f5ff2
+ 804a1d1:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a1d8:	8a 15 f6 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff6
+ 804a1de:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a1e1:	89 15 e8 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe8,edx
+ 804a1e7:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 804a1ec:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a1f3:	8a 15 f7 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff7
+ 804a1f9:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a1fc:	89 15 ec 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fec,edx
+ 804a202:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a207:	8b 15 e4 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe4
+ 804a20d:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a214:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a217:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a21c:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a221:	8b 15 e8 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe8
+ 804a227:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a22e:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a231:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a236:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a23b:	8b 15 ec 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fec
+ 804a241:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a248:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a24b:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a250:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a255:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a25a:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 804a260:	c7 05 74 61 3f 08 50 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d050
+ 804a26a:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a271:	8b 15 90 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6190
+ 804a277:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a279:	c7 05 74 61 3f 08 54 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d054
+ 804a283:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a28a:	8b 15 94 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6194
+ 804a290:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a292:	c7 05 74 61 3f 08 58 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d058
+ 804a29c:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a2a3:	8b 15 98 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6198
+ 804a2a9:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a2ab:	c7 05 74 61 3f 08 5c d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d05c
+ 804a2b5:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a2bc:	8b 15 9c 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f619c
+ 804a2c2:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a2c4:	c7 05 74 61 3f 08 60 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d060
+ 804a2ce:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a2d5:	8b 15 a0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a0
+ 804a2db:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a2dd:	c7 05 74 61 3f 08 64 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d064
+ 804a2e7:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a2ee:	8b 15 a4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a4
+ 804a2f4:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a2f6:	c7 05 74 61 3f 08 70 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d070
+ 804a300:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a307:	8b 15 a8 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a8
+ 804a30d:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a30f:	8b 15 ac 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61ac
+ 804a315:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a318:	c7 05 74 61 3f 08 78 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d078
+ 804a322:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a329:	8b 15 b0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b0
+ 804a32f:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a331:	8b 15 b4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b4
+ 804a337:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a33a:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a33f:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 804a346:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 804a34c:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 804a351:	8b 80 98 ff df ff                            	mov    eax,DWORD PTR [eax-0x200068]
+ 804a357:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804a35c:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804a361:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804a367:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804a36c:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804a373:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 804a375:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804a37a:	c7 05 58 d0 04 08 01 00 00 00                	mov    DWORD PTR ds:0x804d058,0x1
+ 804a384:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804a389:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 804a38f:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804a394:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804a39a:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a39f:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804a3a4:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 804a3ae:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 804a3b4:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 804a3bb:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a3c2:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a3c5:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804a3cc:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a3d3:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a3d6:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 804a3dd:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804a3e3:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 804a3e9:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 804a3f0:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a3f7:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a3fa:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804a401:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a408:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a40b:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 804a412:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804a418:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 804a41d:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804a422:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 804a427:	8b 80 98 ff df ff                            	mov    eax,DWORD PTR [eax-0x200068]
+ 804a42d:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804a433:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804a438:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804a43f:	8b 15 5c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d05c
+ 804a445:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a447:	a1 68 61 3f 08                               	mov    eax,ds:0x83f6168
+ 804a44c:	ba 47 a4 04 88                               	mov    edx,0x8804a447
+ 804a451:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804a456:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804a45c:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a461:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804a466:	ba 00 00 00 00                               	mov    edx,0x0
+ 804a46b:	a0 f0 5f 1f 08                               	mov    al,ds:0x81f5ff0
+ 804a470:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a477:	8a 15 f4 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff4
+ 804a47d:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a480:	89 15 e0 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe0,edx
+ 804a486:	a0 f1 5f 1f 08                               	mov    al,ds:0x81f5ff1
+ 804a48b:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a492:	8a 15 f5 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff5
+ 804a498:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a49b:	89 15 e4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe4,edx
+ 804a4a1:	a0 f2 5f 1f 08                               	mov    al,ds:0x81f5ff2
+ 804a4a6:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a4ad:	8a 15 f6 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff6
+ 804a4b3:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a4b6:	89 15 e8 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe8,edx
+ 804a4bc:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 804a4c1:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804a4c8:	8a 15 f7 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff7
+ 804a4ce:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804a4d1:	89 15 ec 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fec,edx
+ 804a4d7:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a4dc:	8b 15 e4 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe4
+ 804a4e2:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a4e9:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a4ec:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a4f1:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a4f6:	8b 15 e8 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe8
+ 804a4fc:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a503:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a506:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a50b:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a510:	8b 15 ec 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fec
+ 804a516:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a51d:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a520:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a525:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a52a:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a52f:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 804a535:	c7 05 74 61 3f 08 50 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d050
+ 804a53f:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a546:	8b 15 90 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6190
+ 804a54c:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a54e:	c7 05 74 61 3f 08 54 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d054
+ 804a558:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a55f:	8b 15 94 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6194
+ 804a565:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a567:	c7 05 74 61 3f 08 58 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d058
+ 804a571:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a578:	8b 15 98 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6198
+ 804a57e:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a580:	c7 05 74 61 3f 08 5c d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d05c
+ 804a58a:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a591:	8b 15 9c 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f619c
+ 804a597:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a599:	c7 05 74 61 3f 08 60 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d060
+ 804a5a3:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a5aa:	8b 15 a0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a0
+ 804a5b0:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a5b2:	c7 05 74 61 3f 08 64 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d064
+ 804a5bc:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a5c3:	8b 15 a4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a4
+ 804a5c9:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a5cb:	c7 05 74 61 3f 08 70 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d070
+ 804a5d5:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a5dc:	8b 15 a8 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a8
+ 804a5e2:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a5e4:	8b 15 ac 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61ac
+ 804a5ea:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a5ed:	c7 05 74 61 3f 08 78 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d078
+ 804a5f7:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a5fe:	8b 15 b0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b0
+ 804a604:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a606:	8b 15 b4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b4
+ 804a60c:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a60f:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a614:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 804a61b:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 804a621:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 804a626:	8b 80 98 ff df ff                            	mov    eax,DWORD PTR [eax-0x200068]
+ 804a62c:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804a631:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804a636:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804a63c:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804a641:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804a648:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 804a64a:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804a64f:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 804a654:	ba 14 fc ff ff                               	mov    edx,0xfffffc14
+ 804a659:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804a65e:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804a664:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a669:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804a66e:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 804a678:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 804a67e:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 804a685:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a68c:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a68f:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804a696:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a69d:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a6a0:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 804a6a7:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804a6ad:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 804a6b3:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 804a6ba:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a6c1:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a6c4:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804a6cb:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a6d2:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a6d5:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 804a6dc:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804a6e2:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 804a6e7:	a3 58 d0 04 08                               	mov    ds:0x804d058,eax
+ 804a6ec:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804a6f1:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 804a6f7:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804a6fc:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804a702:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a707:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804a70c:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 804a716:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 804a71c:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 804a723:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a72a:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a72d:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804a734:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a73b:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a73e:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 804a745:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804a74b:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 804a751:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 804a758:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a75f:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a762:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804a769:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a770:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a773:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 804a77a:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804a780:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 804a785:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804a78a:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804a78f:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804a795:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804a79a:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804a7a1:	ba 00 00 00 00                               	mov    edx,0x0
+ 804a7a6:	8a 10                                        	mov    dl,BYTE PTR [eax]
+ 804a7a8:	89 15 50 d0 04 08                            	mov    DWORD PTR ds:0x804d050,edx
+ 804a7ae:	ba 00 00 00 00                               	mov    edx,0x0
+ 804a7b3:	8a 15 50 d0 04 08                            	mov    dl,BYTE PTR ds:0x804d050
+ 804a7b9:	8b 14 95 70 5b 1f 08                         	mov    edx,DWORD PTR [edx*4+0x81f5b70]
+ 804a7c0:	89 15 5c d0 04 08                            	mov    DWORD PTR ds:0x804d05c,edx
+ 804a7c6:	c7 05 58 d0 04 08 00 00 00 00                	mov    DWORD PTR ds:0x804d058,0x0
+ 804a7d0:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804a7d5:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 804a7db:	b9 98 9f 04 88                               	mov    ecx,0x88049f98
+ 804a7e0:	89 0d 00 61 1f 08                            	mov    DWORD PTR ds:0x81f6100,ecx
+ 804a7e6:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804a7eb:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804a7f1:	89 15 90 60 1f 08                            	mov    DWORD PTR ds:0x81f6090,edx
+ 804a7f7:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a7fc:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804a801:	c7 05 00 60 1f 08 01 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x1
+ 804a80b:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 804a811:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 804a818:	66 8b 0c 4d 50 10 16 08                      	mov    cx,WORD PTR [ecx*2+0x8161050]
+ 804a820:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a827:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a82a:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a831:	8b 0d 00 60 1f 08                            	mov    ecx,DWORD PTR ds:0x81f6000
+ 804a837:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a83a:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 804a841:	89 15 fe 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ffe,edx
+ 804a847:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 804a84d:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 804a854:	66 8b 0c 4d 50 10 16 08                      	mov    cx,WORD PTR [ecx*2+0x8161050]
+ 804a85c:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804a863:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a866:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804a86d:	8b 0d 00 60 1f 08                            	mov    ecx,DWORD PTR ds:0x81f6000
+ 804a873:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804a876:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 804a87d:	89 15 fe 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ffe,edx
+ 804a883:	a1 90 60 1f 08                               	mov    eax,ds:0x81f6090
+ 804a888:	a3 f4 5f 1f 08                               	mov    ds:0x81f5ff4,eax
+ 804a88d:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a892:	a0 00 60 1f 08                               	mov    al,ds:0x81f6000
+ 804a897:	8a 80 10 d3 04 08                            	mov    al,BYTE PTR [eax+0x804d310]
+ 804a89d:	a2 fc 60 1f 08                               	mov    ds:0x81f60fc,al
+ 804a8a2:	a0 fb 5f 1f 08                               	mov    al,ds:0x81f5ffb
+ 804a8a7:	8b 04 85 90 f1 04 08                         	mov    eax,DWORD PTR [eax*4+0x804f190]
+ 804a8ae:	a2 f4 60 1f 08                               	mov    ds:0x81f60f4,al
+ 804a8b3:	b8 00 00 00 00                               	mov    eax,0x0
+ 804a8b8:	ba 00 00 00 00                               	mov    edx,0x0
+ 804a8bd:	8a 15 f8 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff8
+ 804a8c3:	8a 84 02 00 d1 04 08                         	mov    al,BYTE PTR [edx+eax*1+0x804d100]
+ 804a8ca:	8a 15 f9 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff9
+ 804a8d0:	8a 84 02 00 d1 04 08                         	mov    al,BYTE PTR [edx+eax*1+0x804d100]
+ 804a8d7:	8a 15 fa 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ffa
+ 804a8dd:	8a 84 02 00 d1 04 08                         	mov    al,BYTE PTR [edx+eax*1+0x804d100]
+ 804a8e4:	8a 15 fb 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ffb
+ 804a8ea:	8a 84 02 00 d1 04 08                         	mov    al,BYTE PTR [edx+eax*1+0x804d100]
+ 804a8f1:	8a 80 10 d3 04 08                            	mov    al,BYTE PTR [eax+0x804d310]
+ 804a8f7:	a2 f0 60 1f 08                               	mov    ds:0x81f60f0,al
+ 804a8fc:	ba 80 5f 1f 08                               	mov    edx,0x81f5f80
+ 804a901:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 804a906:	8b 04 85 90 f1 04 08                         	mov    eax,DWORD PTR [eax*4+0x804f190]
+ 804a90d:	8b 14 82                                     	mov    edx,DWORD PTR [edx+eax*4]
+ 804a910:	a0 f7 5f 1f 08                               	mov    al,ds:0x81f5ff7
+ 804a915:	8b 04 85 90 f1 04 08                         	mov    eax,DWORD PTR [eax*4+0x804f190]
+ 804a91c:	8b 14 82                                     	mov    edx,DWORD PTR [edx+eax*4]
+ 804a91f:	a0 fb 5f 1f 08                               	mov    al,ds:0x81f5ffb
+ 804a924:	8b 04 85 90 f1 04 08                         	mov    eax,DWORD PTR [eax*4+0x804f190]
+ 804a92b:	8b 14 82                                     	mov    edx,DWORD PTR [edx+eax*4]
+ 804a92e:	8b 12                                        	mov    edx,DWORD PTR [edx]
+ 804a930:	88 15 f8 60 1f 08                            	mov    BYTE PTR ds:0x81f60f8,dl
+ 804a936:	a1 f0 60 1f 08                               	mov    eax,ds:0x81f60f0
+ 804a93b:	8b 04 85 10 d3 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d310]
+ 804a942:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a947:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a94c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804a952:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804a959:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804a95c:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804a961:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804a966:	8b 04 85 60 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6160]
+ 804a96d:	8b 15 00 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6100
+ 804a973:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a975:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 804a97b:	c7 05 74 61 3f 08 90 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f6190
+ 804a985:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a98c:	8b 15 50 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d050
+ 804a992:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a994:	8b 15 54 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d054
+ 804a99a:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a99d:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 804a9a3:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 804a9a6:	8b 15 5c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d05c
+ 804a9ac:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 804a9af:	c7 05 74 61 3f 08 a0 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a0
+ 804a9b9:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a9c0:	8b 15 60 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d060
+ 804a9c6:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a9c8:	8b 15 64 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d064
+ 804a9ce:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a9d1:	c7 05 74 61 3f 08 a8 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a8
+ 804a9db:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804a9e2:	8b 15 70 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d070
+ 804a9e8:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804a9ea:	8b 15 74 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d074
+ 804a9f0:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804a9f3:	8b 15 78 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d078
+ 804a9f9:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 804a9fc:	8b 15 7c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d07c
+ 804aa02:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 804aa05:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804aa0a:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 804aa11:	c7 00 00 00 00 00                            	mov    DWORD PTR [eax],0x0
+ 804aa17:	a1 34 61 3f 08                               	mov    eax,ds:0x83f6134
+ 804aa1c:	8b 80 98 ff df ff                            	mov    eax,DWORD PTR [eax-0x200068]
+ 804aa22:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804aa27:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804aa2c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aa32:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aa37:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aa3e:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 804aa40:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804aa45:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804aa4a:	89 c0                                        	mov    eax,eax
+ 804aa4c:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 804aa51:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804aa56:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aa5c:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aa61:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aa68:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804aa6e:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804aa74:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aa76:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804aa7b:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aa81:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aa86:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aa8d:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804aa93:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aa95:	b8 20 d0 04 08                               	mov    eax,0x804d020
+ 804aa9a:	a3 5c d0 04 08                               	mov    ds:0x804d05c,eax
+ 804aa9f:	a1 5c d0 04 08                               	mov    eax,ds:0x804d05c
+ 804aaa4:	89 c0                                        	mov    eax,eax
+ 804aaa6:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 804aaab:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804aab0:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aab6:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aabb:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aac2:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804aac8:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804aace:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aad0:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804aad5:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aadb:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aae0:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aae7:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804aaed:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aaef:	b8 ef ab 04 88                               	mov    eax,0x8804abef
+ 804aaf4:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804aaf9:	c7 05 f4 5f 1f 08 00 00 00 80                	mov    DWORD PTR ds:0x81f5ff4,0x80000000
+ 804ab03:	b8 00 00 00 00                               	mov    eax,0x0
+ 804ab08:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804ab0d:	c7 05 00 60 1f 08 00 00 00 00                	mov    DWORD PTR ds:0x81f6000,0x0
+ 804ab17:	66 a1 f0 5f 1f 08                            	mov    ax,ds:0x81f5ff0
+ 804ab1d:	66 8b 0d f4 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff4
+ 804ab24:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804ab2b:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804ab2e:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804ab35:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804ab3c:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804ab3f:	66 89 15 f8 5f 1f 08                         	mov    WORD PTR ds:0x81f5ff8,dx
+ 804ab46:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804ab4c:	66 a1 f2 5f 1f 08                            	mov    ax,ds:0x81f5ff2
+ 804ab52:	66 8b 0d f6 5f 1f 08                         	mov    cx,WORD PTR ds:0x81f5ff6
+ 804ab59:	8b 14 85 30 0f 06 08                         	mov    edx,DWORD PTR [eax*4+0x8060f30]
+ 804ab60:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804ab63:	66 8b 0d 02 60 1f 08                         	mov    cx,WORD PTR ds:0x81f6002
+ 804ab6a:	8b 14 95 30 0f 06 08                         	mov    edx,DWORD PTR [edx*4+0x8060f30]
+ 804ab71:	8b 14 8a                                     	mov    edx,DWORD PTR [edx+ecx*4]
+ 804ab74:	66 89 15 fa 5f 1f 08                         	mov    WORD PTR ds:0x81f5ffa,dx
+ 804ab7b:	89 15 00 60 1f 08                            	mov    DWORD PTR ds:0x81f6000,edx
+ 804ab81:	a1 f8 5f 1f 08                               	mov    eax,ds:0x81f5ff8
+ 804ab86:	89 c0                                        	mov    eax,eax
+ 804ab88:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 804ab8d:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804ab92:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804ab98:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804ab9d:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aba4:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804abaa:	8b 92 98 ff df ff                            	mov    edx,DWORD PTR [edx-0x200068]
+ 804abb0:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804abb2:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804abb7:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804abbd:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804abc2:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804abc9:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804abcf:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804abd1:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 804abd7:	c7 05 c4 61 5f 08 10 90 04 08                	mov    DWORD PTR ds:0x85f61c4,0x8049010
+ 804abe1:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 804abe6:	8b 04 85 c8 61 5f 08                         	mov    eax,DWORD PTR [eax*4+0x85f61c8]
+ 804abed:	8b 00                                        	mov    eax,DWORD PTR [eax]
+ 804abef:	a3 50 d0 04 08                               	mov    ds:0x804d050,eax
+ 804abf4:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804abf9:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804abfb:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804ac01:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804ac06:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804ac0c:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804ac11:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804ac18:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804ac1e:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804ac24:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ac26:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804ac2c:	89 d0                                        	mov    eax,edx
+ 804ac2e:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804ac33:	8b 80 a0 ff df ff                            	mov    eax,DWORD PTR [eax-0x200060]
+ 804ac39:	8b 80 a0 ff df ff                            	mov    eax,DWORD PTR [eax-0x200060]
+ 804ac3f:	a3 10 61 1f 08                               	mov    ds:0x81f6110,eax
+ 804ac44:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804ac49:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804ac4f:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804ac54:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804ac5b:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804ac61:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ac63:	c7 05 50 d0 04 08 00 00 00 00                	mov    DWORD PTR ds:0x804d050,0x0
+ 804ac6d:	a1 68 61 3f 08                               	mov    eax,ds:0x83f6168
+ 804ac72:	ba 6d ac 04 88                               	mov    edx,0x8804ac6d
+ 804ac77:	a3 f0 5f 1f 08                               	mov    ds:0x81f5ff0,eax
+ 804ac7c:	89 15 f4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5ff4,edx
+ 804ac82:	b8 00 00 00 00                               	mov    eax,0x0
+ 804ac87:	b9 00 00 00 00                               	mov    ecx,0x0
+ 804ac8c:	ba 00 00 00 00                               	mov    edx,0x0
+ 804ac91:	a0 f0 5f 1f 08                               	mov    al,ds:0x81f5ff0
+ 804ac96:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804ac9d:	8a 15 f4 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff4
+ 804aca3:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804aca6:	89 15 e0 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe0,edx
+ 804acac:	a0 f1 5f 1f 08                               	mov    al,ds:0x81f5ff1
+ 804acb1:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804acb8:	8a 15 f5 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff5
+ 804acbe:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804acc1:	89 15 e4 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe4,edx
+ 804acc7:	a0 f2 5f 1f 08                               	mov    al,ds:0x81f5ff2
+ 804accc:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804acd3:	8a 15 f6 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff6
+ 804acd9:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804acdc:	89 15 e8 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fe8,edx
+ 804ace2:	a0 f3 5f 1f 08                               	mov    al,ds:0x81f5ff3
+ 804ace7:	8b 0c 85 00 06 05 08                         	mov    ecx,DWORD PTR [eax*4+0x8050600]
+ 804acee:	8a 15 f7 5f 1f 08                            	mov    dl,BYTE PTR ds:0x81f5ff7
+ 804acf4:	8a 14 11                                     	mov    dl,BYTE PTR [ecx+edx*1]
+ 804acf7:	89 15 ec 5f 1f 08                            	mov    DWORD PTR ds:0x81f5fec,edx
+ 804acfd:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804ad02:	8b 15 e4 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe4
+ 804ad08:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804ad0f:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804ad12:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804ad17:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804ad1c:	8b 15 e8 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fe8
+ 804ad22:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804ad29:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804ad2c:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804ad31:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804ad36:	8b 15 ec 5f 1f 08                            	mov    edx,DWORD PTR ds:0x81f5fec
+ 804ad3c:	8b 04 85 a0 d0 04 08                         	mov    eax,DWORD PTR [eax*4+0x804d0a0]
+ 804ad43:	8b 04 90                                     	mov    eax,DWORD PTR [eax+edx*4]
+ 804ad46:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804ad4b:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804ad50:	a3 e0 5f 1f 08                               	mov    ds:0x81f5fe0,eax
+ 804ad55:	8b 0d e0 5f 1f 08                            	mov    ecx,DWORD PTR ds:0x81f5fe0
+ 804ad5b:	c7 05 74 61 3f 08 50 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d050
+ 804ad65:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804ad6c:	8b 15 90 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6190
+ 804ad72:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ad74:	c7 05 74 61 3f 08 54 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d054
+ 804ad7e:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804ad85:	8b 15 94 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6194
+ 804ad8b:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ad8d:	c7 05 74 61 3f 08 58 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d058
+ 804ad97:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804ad9e:	8b 15 98 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f6198
+ 804ada4:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ada6:	c7 05 74 61 3f 08 5c d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d05c
+ 804adb0:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804adb7:	8b 15 9c 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f619c
+ 804adbd:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804adbf:	c7 05 74 61 3f 08 60 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d060
+ 804adc9:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804add0:	8b 15 a0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a0
+ 804add6:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804add8:	c7 05 74 61 3f 08 64 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d064
+ 804ade2:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804ade9:	8b 15 a4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a4
+ 804adef:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804adf1:	c7 05 74 61 3f 08 70 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d070
+ 804adfb:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804ae02:	8b 15 a8 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61a8
+ 804ae08:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ae0a:	8b 15 ac 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61ac
+ 804ae10:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804ae13:	c7 05 74 61 3f 08 78 d0 04 08                	mov    DWORD PTR ds:0x83f6174,0x804d078
+ 804ae1d:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804ae24:	8b 15 b0 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b0
+ 804ae2a:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ae2c:	8b 15 b4 61 5f 08                            	mov    edx,DWORD PTR ds:0x85f61b4
+ 804ae32:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804ae35:	a1 e0 5f 1f 08                               	mov    eax,ds:0x81f5fe0
+ 804ae3a:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 804ae41:	c7 00 01 00 00 00                            	mov    DWORD PTR [eax],0x1
+ 804ae47:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804ae4c:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804ae52:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804ae57:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804ae5e:	8b 15 34 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6134
+ 804ae64:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804ae66:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804ae6b:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804ae6d:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804ae73:	8b 50 04                                     	mov    edx,DWORD PTR [eax+0x4]
+ 804ae76:	89 15 14 61 1f 08                            	mov    DWORD PTR ds:0x81f6114,edx
+ 804ae7c:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804ae81:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804ae87:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804ae8c:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804ae93:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804ae99:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804ae9f:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804aea5:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aea7:	b8 78 d0 04 08                               	mov    eax,0x804d078
+ 804aeac:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aeb2:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aeb7:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aebe:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804aec4:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aec6:	8b 15 14 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6114
+ 804aecc:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804aecf:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804aed4:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804aed6:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804aedc:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804aee1:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804aee7:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804aeec:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804aef3:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804aef9:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804aeff:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804af01:	b8 64 d0 04 08                               	mov    eax,0x804d064
+ 804af06:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804af0c:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804af11:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804af18:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804af1e:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804af20:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804af25:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804af27:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804af2d:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804af32:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804af38:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804af3d:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804af44:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804af4a:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804af50:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804af52:	b8 5c d0 04 08                               	mov    eax,0x804d05c
+ 804af57:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804af5d:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804af62:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804af69:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804af6f:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804af71:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804af76:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804af78:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804af7e:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804af83:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804af89:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804af8e:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804af95:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804af9b:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804afa1:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804afa3:	b8 58 d0 04 08                               	mov    eax,0x804d058
+ 804afa8:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804afae:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804afb3:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804afba:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804afc0:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804afc2:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804afc7:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804afc9:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804afcf:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804afd4:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804afda:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804afdf:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804afe6:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804afec:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804aff2:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804aff4:	b8 54 d0 04 08                               	mov    eax,0x804d054
+ 804aff9:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804afff:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804b004:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804b00b:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804b011:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b013:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804b018:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804b01a:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804b020:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804b025:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804b02b:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804b030:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804b037:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804b03d:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804b043:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b045:	b8 34 61 3f 08                               	mov    eax,0x83f6134
+ 804b04a:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804b050:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804b055:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804b05c:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804b062:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b064:	a1 30 61 3f 08                               	mov    eax,ds:0x83f6130
+ 804b069:	8b 10                                        	mov    edx,DWORD PTR [eax]
+ 804b06b:	89 15 10 61 1f 08                            	mov    DWORD PTR ds:0x81f6110,edx
+ 804b071:	b8 30 61 3f 08                               	mov    eax,0x83f6130
+ 804b076:	8b 15 58 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6158
+ 804b07c:	a3 74 61 3f 08                               	mov    ds:0x83f6174,eax
+ 804b081:	8b 04 95 70 61 3f 08                         	mov    eax,DWORD PTR [edx*4+0x83f6170]
+ 804b088:	8b 15 30 61 3f 08                            	mov    edx,DWORD PTR ds:0x83f6130
+ 804b08e:	8b 92 a0 ff df ff                            	mov    edx,DWORD PTR [edx-0x200060]
+ 804b094:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b096:	8b 15 10 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6110
+ 804b09c:	89 d0                                        	mov    eax,edx
+ 804b09e:	a3 00 61 1f 08                               	mov    ds:0x81f6100,eax
+ 804b0a3:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 804b0a8:	8b 04 85 60 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6160]
+ 804b0af:	8b 15 00 61 1f 08                            	mov    edx,DWORD PTR ds:0x81f6100
+ 804b0b5:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b0b7:	8b 0d 58 61 3f 08                            	mov    ecx,DWORD PTR ds:0x83f6158
+ 804b0bd:	c7 05 74 61 3f 08 90 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f6190
+ 804b0c7:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804b0ce:	8b 15 50 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d050
+ 804b0d4:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b0d6:	8b 15 54 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d054
+ 804b0dc:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804b0df:	8b 15 58 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d058
+ 804b0e5:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 804b0e8:	8b 15 5c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d05c
+ 804b0ee:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 804b0f1:	c7 05 74 61 3f 08 a0 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a0
+ 804b0fb:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804b102:	8b 15 60 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d060
+ 804b108:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b10a:	8b 15 64 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d064
+ 804b110:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804b113:	c7 05 74 61 3f 08 a8 61 5f 08                	mov    DWORD PTR ds:0x83f6174,0x85f61a8
+ 804b11d:	8b 04 8d 70 61 3f 08                         	mov    eax,DWORD PTR [ecx*4+0x83f6170]
+ 804b124:	8b 15 70 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d070
+ 804b12a:	89 10                                        	mov    DWORD PTR [eax],edx
+ 804b12c:	8b 15 74 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d074
+ 804b132:	89 50 04                                     	mov    DWORD PTR [eax+0x4],edx
+ 804b135:	8b 15 78 d0 04 08                            	mov    edx,DWORD PTR ds:0x804d078
+ 804b13b:	89 50 08                                     	mov    DWORD PTR [eax+0x8],edx
+ 804b13e:	8b 15 7c d0 04 08                            	mov    edx,DWORD PTR ds:0x804d07c
+ 804b144:	89 50 0c                                     	mov    DWORD PTR [eax+0xc],edx
+ 804b147:	a1 58 61 3f 08                               	mov    eax,ds:0x83f6158
+ 804b14c:	8b 04 85 50 61 3f 08                         	mov    eax,DWORD PTR [eax*4+0x83f6150]
+ 804b153:	c7 00 00 00 00 00                            	mov    DWORD PTR [eax],0x0
+ 804b159:	8b 25 30 61 3f 08                            	mov    esp,DWORD PTR ds:0x83f6130
+ 804b15f:	8e c8                                        	mov    cs,eax

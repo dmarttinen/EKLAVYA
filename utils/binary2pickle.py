@@ -2,99 +2,210 @@
 
 # https://anee.me/reversing-an-elf-from-the-ground-up-4fe1ec31db4a
 
+import re
 import pickle
 from elftools.elf.elffile import ELFFile
-from elftools.elf.sections import SymbolTableSection
-import binascii
-import numpy as np
+import os
+import sys
 
-fname = 'binary/x86/clang-32-O0-binutils-addr2line'
-pname = 'pickles/x86/clang-32-O0-binutils-addr2line.pkl'
+# dirpath = '/home/bbaker/CSCI5271/Project/EKLAVYA/test_binary/'
 
+for filename in os.listdir(sys.argv[1]):
+# for filename in os.listdir(dirpath):
+    filepath = sys.argv[1] + "/" + filename
+#    filepath = dirpath + "/" + filename
+    cmd = "readelf -wi " + filepath + " > elftemp"
+    os.system(cmd)
+    cmd = "objdump -d " + filepath + " > bintemp"
+    os.system(cmd)
 
-def section_info_highlevel(stream):
-    print 'High level API...'
-    elffile = ELFFile(stream)
+    # nfile = 'addr2line.txt'  # created with: readelf -wi clang-32-O0-binutils-addr2line > addr2line.txt
+    # nfile = 'test.txt'
 
-    # Just use the public methods of ELFFile to get what we need
-    # Note that section names are strings.
-    print '  %s sections' % elffile.num_sections()
-    section = elffile.get_section_by_name('.symtab')
+    nfile = 'elftemp'
 
-    if not section:
-        print '  No symbol table found. Perhaps this ELF has been stripped?'
-        return
+    statinfo = os.stat(nfile)
+    if statinfo.st_size:
+        # open elf file
+        f = open(nfile, 'r')
 
-    testit = []
-    for i in range(section.num_symbols()):
-        testit.append(section.get_symbol(i).name)
+        # Create search patterns
+        tag_pattern = re.compile('TAG')
+        function_pattern = re.compile('DW_TAG_subprogram')
+        name_pattern = re.compile('DW_AT_name')
+        low_pattern = re.compile('DW_AT_low_pc')
+        high_pattern = re.compile('DW_AT_high_pc')
+        parameter_pattern = re.compile('DW_TAG_formal_parameter')
 
-    # can find names of functions
-    x = np.array(testit)
-    testit = np.unique(x)
-    nlist = []
-    elist = []
-    for i in testit:
-        if '@' not in i:
-            nlist.append(i)  # function names
-        else:
-            elist.append(i)  # extern_functions
+        # Create the counter variables
+        line_cnt = 0
+        func_cnt = 0
+        flag = ''
+        func_lst = []
+        full_dict = {}
+        ret_val = ''
+        arg_lst = []
+        bytes_lst = []
+        low = 0
+        high = 0
+        bounds = ()
+        arg_cnt = 0
+        str_lst = []
+        key_name = ''
 
-    # A section type is in its header, but the name was decoded and placed in
-    # a public attribute.
-    print '  Section name: %s, type: %s' %(
-        section.name, section['sh_type'])
+        # Loop through each line
+        for line in f.readlines():
+            line_cnt = line_cnt + 1  # count lines read
+            if tag_pattern.search(line):  # new tag header, now find type of section
+                if function_pattern.search(line):  # is it a function?
+                    flag = 'function'  # set function flag
+                    if len(func_lst) > 0 and key_name != '':
+                        key_name = func_lst[func_cnt - 1]
+                        # Save everything so far
+                        full_dict[key_name] = {'ret_type': ret_val,
+                                               'args_type': arg_lst,
+                                               'inst_bytes': bytes_lst,
+                                               'boundaries': bounds,
+                                               'num_args': arg_cnt,
+                                               'inst_strings': str_lst}
+                    # Reset function counters
+                    low = 0
+                    high = 0
+                    bounds = ()
+                    arg_cnt = 0
+                    arg_lst = []
+                    key_name = ''
+                elif parameter_pattern.search(line):  # is it a parameter to a function?
+                    flag = 'parameter'
+                else:  # something else
+                    flag = 'other'
+            if flag == 'function' and low_pattern.search(line):  # find the lower bound of the addresses
+                m = re.match(r"[ <0-9a-f>]+DW_AT_low_pc[ ]+: ([0-9xa-f]+)", line)
+                low = int(m.group(1), 16)
+            if flag == 'function' and high_pattern.search(line) and low:  # find the upper bound of the addresses
+                m = re.match(r"[ <0-9a-f>]+DW_AT_high_pc[ ]+: ([0-9xa-f]+)", line)
+                high = int(m.group(1), 16) + low
+                bounds = (low, high)
+            if flag == 'function' and name_pattern.search(line) and high:  # find the function name
+                m = re.match(r"[ <0-9a-f>]+DW_AT_name[ ]+:[ (a-z,]+:[ 0-9xa-f)]+: ([\w@]+)", line)
+                key_name = m.group(1)
+                func_lst.append(key_name)
+                func_cnt = func_cnt + 1
+            if flag == 'parameter' and name_pattern.search(line):  # if it is a parameter with a name count it
+                arg_cnt = arg_cnt + 1
 
-    # But there's more... If this section is a symbol table section (which is
-    # the case in the sample ELF file that comes with the examples), we can
-    # get some more information about it.
-    if isinstance(section, SymbolTableSection):
-        num_symbols = section.num_symbols()
-        print "  It's a symbol section with %s symbols" % num_symbols
-        print "  The name of the last symbol in the section is: %s" % (
-            section.get_symbol(num_symbols - 1).name)
+        # Save the last items to the function table
+        full_dict[key_name] = {'ret_type': ret_val,
+                               'args_type': arg_lst,
+                               'inst_bytes': bytes_lst,
+                               'boundaries': bounds,
+                               'num_args': arg_cnt,
+                               'inst_strings': str_lst}
 
+        # close file
+        f.close()
+    else:
+        cmd = "objdump -g " + filepath + " > elftemp"
+        os.system(cmd)
+        # open elf file
+        f = open(nfile, 'r')
 
-with open(pname, 'rb') as f:
-    data = pickle.load(f)
+        # Create the counter variables
+        line_cnt = 0
+        func_cnt = 0
+        flag = ''
+        func_lst = []
+        full_dict = {}
+        ret_val = ''
+        arg_lst = []
+        bytes_lst = []
+        low = 0
+        high = 0
+        bounds = ()
+        arg_cnt = 0
+        str_lst = []
+        key_name = ''
 
-f.close()
+        for line in f.readlines():
+            line_cnt = line_cnt + 1
+            m = re.match(r"[a-z]+ ([\S]+) \(([\S ]*)\)", line)
+            if m is not None:
+                if len(m.groups()) == 2:
+                    func_cnt = func_cnt + 1
+                    key_name = m.group(1)
+                    func_lst.append(key_name)
+                    if m.group(2) == '':
+                        arg_cnt = 0
+                    else:
+                        arg_cnt = len(m.group(2).split(','))
+                    # Save everything so far
+                    full_dict[key_name] = {'ret_type': ret_val,
+                                           'args_type': arg_lst,
+                                           'inst_bytes': bytes_lst,
+                                           'boundaries': bounds,
+                                           'num_args': arg_cnt,
+                                           'inst_strings': str_lst}
 
-with open(fname, 'rb') as f:
-    elffile = ELFFile(f)
-    # find text_addr
-    for section in elffile.iter_sections():
-        if section.name == ".text":
-            text_addr = hex(section['sh_addr'])
-    # find binary_filename
-    binary_filename = fname.split('/')[-1]
-    # find arch
-    if elffile.has_dwarf_info():
-        dfile = elffile.get_dwarf_info()
-        if elffile.get_machine_arch() == 'x86':
-            arch = 'i386'
-        else:
-            arch = 'amd64'
-    # find functions
-    f.seek(0)
-    section_info_highlevel(f)
-    f.seek(0)
-    # find structures
-    # find binRowBytes
-    binRawBytes = f.read()
-    binRowBytes = binascii.hexlify(f.read())
-    # find function_calls
+    # loop though all the functions and pull binary data
+    for func in full_dict.keys():
+        # Create objdump command to show one function only
+        cmd = 'objdump -M intel -d ' + filepath + "| sed '/<" + func + ">:/,/^$/!d' > bintemp"
+        os.system(cmd)
 
+        nfile = 'bintemp'
+        f = open(nfile, 'r')
+        bin_lst = []
+        for line in f.readlines():  # Loop through all lines of the file
+            m = re.match(r"^ [0-9a-f]+:\t([a-f0-9 ]+)", line)
+            if m is not None:
+                vals = m.group(1)  # Pull binary data
+                vals = vals.split()
+                new = []
+                for i in vals:
+                    new.append(int(i, 16))  # Save as dec list
+                if new == [0]:
+                    bin_lst[len(bin_lst) - 1].append(0)  # If single 0 value add it to the previous entry
+                else:
+                    bin_lst.append(new)  # add to bin_lst
+                if new == [195]:  # Break if return value
+                    break
 
-f.close()
+        # close the file
+        f.close()
+        full_dict[func]['inst_bytes'] = bin_lst  # update the inst_bytes value.
 
-# checks
-print "is text_addr the same?"
-print data['text_addr'] == text_addr
+    with open(filepath, 'rb') as f:
+        elffile = ELFFile(f)
+        # find text_addr
+        for section in elffile.iter_sections():
+            if section.name == ".text":
+                text_addr = hex(section['sh_addr'])
+        # find binary_filename
+        binary_filename = filename.split('/')[-1]
+        # find arch
+        if elffile.has_dwarf_info():
+            dfile = elffile.get_dwarf_info()
+            if elffile.get_machine_arch() == 'x86':
+                arch = 'i386'
+            else:
+                arch = 'amd64'
+        # find functions
+        # find structures
+        # find binRowBytes
+        # find function_calls
 
-print "is arch the same?"
-print data['arch'] == arch
+    f.close()
 
-print "is binary_filename the same?"
-print data['binary_filename'] == binary_filename
+    pickleme = {'functions': full_dict,
+                'binary_filename': binary_filename,
+                'arch': arch,
+                'extern_functions': {},
+                'text_addr': text_addr,
+                'function_calls': {},
+                'structures': {},
+                'bin_raw_bytes': ""}
+
+    fname = binary_filename + '.pkl'
+
+    pickle.dump(pickleme, open(fname, "wb"))
 
